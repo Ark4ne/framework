@@ -12,6 +12,8 @@ shopt -s nullglob
 # Install phalcon
 git clone -b "$PHALCON_VERSION" --depth 1 -q https://github.com/phalcon/cphalcon
 
+cd cphalcon
+
 zephir clean 2>&1 || exit 1
 zephir fullclean 2>&1 || exit 1
 zephir generate 2>&1 || exit 1
