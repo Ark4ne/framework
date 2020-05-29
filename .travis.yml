@@ -10,7 +10,7 @@ php:
 env:
   global:
     - CC="gcc"
-    - ZEPHIR_VERSION="0.12.19"
+    - ZEPHIR_VERSION="0.10.16"
     - ZEPHIR_PARSER_VERSION="v1.3.4"
     - REPORT_COVERAGE=0
     - PATH="${HOME}/.composer/vendor/bin:${PATH}"
