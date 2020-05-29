@@ -3,35 +3,15 @@ language: php
 sudo: required
 
 php:
-  - 5.6
-  - 7.0
-  - 7.1
   - 7.2
   - 7.3
+  - 7.4
 
 env:
-  - PHALCON_VERSION="v3.0.4"
-  - PHALCON_VERSION="v3.1.2"
-  - PHALCON_VERSION="v3.2.4"
-  - PHALCON_VERSION="v3.3.2"
   - PHALCON_VERSION="v3.4.5"
 
-matrix:
-  exclude:
-  - php: 7.1
-    env: PHALCON_VERSION="v3.0.4"
-  - php: 7.2
-    env: PHALCON_VERSION="v3.0.4"
-  - php: 7.3
-    env: PHALCON_VERSION="v3.0.4"
-  - php: 7.3
-    env: PHALCON_VERSION="v3.1.2"
-  - php: 7.3
-    env: PHALCON_VERSION="v3.2.4"
-  - php: 7.3
-    env: PHALCON_VERSION="v3.3.2"
-
 install:
+  - chmod -R 755 .ci/*
   - .ci/install-zephir.sh
   - .ci/install-phalcon.sh
   - php -v
