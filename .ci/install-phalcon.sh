@@ -68,6 +68,6 @@ fi
 make -j"$(getconf _NPROCESSORS_ONLN)" >/dev/null 2> ./compile-errors.log
 make install
 
-phpenv config-add ../.ci/phalcon.ini || exit 1
+phpenv config-add ../../.ci/phalcon.ini || exit 1
 
 cd .. || exit 1
