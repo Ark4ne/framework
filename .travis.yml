@@ -31,16 +31,9 @@ matrix:
   - php: 7.3
     env: PHALCON_VERSION="v3.3.2"
 
-before_install:
-  - sudo ln -s /home/travis/.phpenv/versions/$(phpenv version-name)/bin/phpize /usr/bin/
-  - sudo ln -s /home/travis/.phpenv/versions/$(phpenv version-name)/bin/php-config /usr/bin/
-  - git clone --depth=1 -q --branch=${PHALCON_VERSION} https://github.com/phalcon/cphalcon.git
-  - cd cphalcon/build
-  - bash install
-  - phpenv config-add ../tests/_ci/phalcon.ini
-  - cd ../../
-
 install:
+  - .ci/install-zephir.sh
+  - .ci/install-phalcon.sh
   - php -v
   - php -r 'echo \Phalcon\Version::get() . PHP_EOL;'
   - php -m
