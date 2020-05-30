@@ -17,7 +17,7 @@ env:
     - TRAVIS_COMMIT_LOG="$(git log --format=fuller -5)"
     - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-ansi --no-progress --no-suggest"
   jobs:
-    - PHALCON_VERSION="v3.4.5"
+    - PHALCON_VERSION="3.4.x"
 
 install:
   - chmod -R 755 .ci/*
