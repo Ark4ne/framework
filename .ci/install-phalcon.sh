@@ -14,8 +14,6 @@ git clone -b "$PHALCON_VERSION" --depth 1 -q https://github.com/phalcon/cphalcon
 
 cd cphalcon
 
-zephir clean 2>&1 || exit 1
-zephir fullclean 2>&1 || exit 1
 zephir build 2>&1 || exit 1
 
 phpenv config-add ../.ci/phalcon.ini || exit 1

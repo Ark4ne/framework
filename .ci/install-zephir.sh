@@ -51,14 +51,14 @@ fi
 popd 1>/dev/null || exit 1
 
 mkdir -p "$HOME/bin"
-#if [[ ! $ZEPHIR_VERSION =~ ^(master|development)$ ]]; then
-#  wget \
-#    --no-clobber \
-#    -O "$HOME/bin/zephir" \
-#    "https://github.com/phalcon/zephir/releases/download/$ZEPHIR_VERSION/zephir.phar"
-#  chmod +x "$HOME/bin/zephir"
-#  exit 0
-#fi
+if [[ ! $ZEPHIR_VERSION =~ ^(master|development)$ ]]; then
+  wget \
+    --no-clobber \
+    -O "$HOME/bin/zephir" \
+    "https://github.com/phalcon/zephir/releases/download/$ZEPHIR_VERSION/zephir.phar"
+  chmod +x "$HOME/bin/zephir"
+  exit 0
+fi
 
 git clone -b "$ZEPHIR_VERSION" --depth 1 -q https://github.com/phalcon/zephir
 pushd zephir 1>/dev/null || exit 1
@@ -69,5 +69,6 @@ pushd zephir 1>/dev/null || exit 1
 (eval "composer install $DEFAULT_COMPOSER_FLAGS")
 
 ln -s "$(pwd)/zephir" "$HOME/bin/zephir"
+chmod +x "$HOME/bin/zephir"
 
 popd 1>/dev/null || exit 1
